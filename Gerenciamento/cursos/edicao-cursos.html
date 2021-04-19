@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="edicao-cursos.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap" rel="stylesheet">
+    <title>Edição - Cursos</title>
+</head>
+
+<body>
+    <div class='black-background'>
+
+    </div>
+    <div class="warning warning-remover-curso">
+        <img src="images/trash2.svg" title="Warning">
+        <h1></h1>
+        <button class="botao botao-cancelar">Cancelar</button>
+        <button class="botao botao-confirmar">Deletar</button>
+    </div>
+
+
+    <div class="header">
+        <a href="../../index.html">
+            <h4 class="logo">ShowTime <img src="images/logo.png" alt=""></h4>
+        </a>
+        <img onclick='showMenu()' src="images/menu.png" id="menu-button">
+        <div class="nav">
+            <div class="dropdown">
+                <h2>Horários <img class="arrow-down" src="images/arrow-down.png"></h2>
+                <ul>
+                    <a href="../../Horarios/turmas/horariosTurmas.html">
+                        <li>Por turmas</li>
+                    </a>
+                    <a href="../../Horarios/professores/horariosProfessor.html">
+                        <li>Por professor</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <h2>Gerenciamento<img class="arrow-down" src="images/arrow-down.png"></h2>
+                <ul>
+                    <a href="../../Gerenciamento/cursos/edicao-cursos.html">
+                        <li>Cursos/Turmas</li>
+                    </a>
+                    <a href="../../Gerenciamento/materias/edicao-materias.html">
+                        <li>Matérias</li>
+                    </a>
+                    <a href="../../Gerenciamento/Organiza_horarios/index.html">
+                        <li>Períodos</li>
+                    </a>
+                    <a href="../../Gerenciamento/professores/edicao-professores.html">
+                        <li>Professores</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a href="../../Sobre/sobre.html">
+                    <h2>Sobre</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="tools-container">
+        <h1>Edição de turmas</h1>
+        <div class="buttons">
+            <div class="salvar" onclick="salvar()">
+                <img src="images/save.png" alt="">
+                <h2>Salvar</h2>
+            </div>
+            <div class="d-flex">
+                <div class="novo-curso" onclick="novoCurso()">
+                    <img src="images/plus.svg" alt="">
+                    <h2>Novo curso</h2>
+                </div>
+                <div class="excluir-curso" onclick="removerTodos()">
+                    <img src="images/trash.svg" alt="">
+                    <h2>Excluir todos</h2>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="nothingToShow">Não há cursos para mostrar, cadastre um novo clicando em "Novo Curso"</div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="edicao-cursos.js"></script>
+</body>
+
+</html>

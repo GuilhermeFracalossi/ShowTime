@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="materias.css" media="all">
+    <title>Gerenciamento de Matérias</title>
+
+</head>
+
+<body>
+    <div class="fundo-preto"></div>
+    <div class="header">
+        <a href="../../index.html">
+            <h4 class="logo">ShowTime <img src="images/logo.png" alt=""></h4>
+        </a>
+        
+        <div class="nav">
+            <div class="dropdown">
+                <h2>Horários </h2>
+                <ul>
+                    <a href="../../Horarios/turmas/horariosTurmas.html">
+                        <li>Por turmas</li>
+                    </a>
+                    <a href="../../Horarios/professores/horariosProfessor.html">
+                        <li>Por professor</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <h2>Gerenciamento</h2>
+                <ul>
+                    <a href="../../Gerenciamento/cursos/edicao-cursos.html">
+                        <li>Cursos/Turmas</li>
+                    </a>
+                    <a href="../../Gerenciamento/materias/edicao-materias.html">
+                        <li>Matérias</li>
+                    </a>
+                    <a href="../../Gerenciamento/Organiza_horarios/index.html">
+                        <li>Períodos</li>
+                    </a>
+                    <a href="../../Gerenciamento/professores/edicao-professores.html">
+                        <li>Professores</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a href="../../Sobre/sobre.html">
+                    <h2>Sobre</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="nome-curso-print"></div>
+    <div class="escolha-curso">
+        <h2>Escolha o curso e a turma:</h2>
+        <div class="select-turma">
+            <div class="curso-container">
+                <h5>Curso:</h5>
+                <select class="tecnicos">
+                    <option value='-1' disabled selected>Selecione...</option>
+                </select>
+            </div>
+            <div class="turma-container">
+                <h5>Turma: </h5>
+                <select class="cursos" disabled>
+
+                </select>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tools-container">
+        <h1>Edição de horários</h1>
+        <div class="select-turma">
+            <div class="curso-container">
+                <h5>Curso:</h5>
+                <select class="tecnicos">
+                    <option value='-1' disabled selected></option>
+                </select>
+            </div>
+            <div class="turma-container">
+                <h5>Turma: </h5>
+                <select class="cursos">
+
+                </select>
+
+            </div>
+        </div>
+       
+        <img src="images/trash.png" alt="Limpar tudo" onclick="trashButton()">
+        <!-- <img src="images/magic.png" alt="Preencher automático" onclick="autoFill()"> -->
+        <div class="search-container">
+            <input type="text" name="" placeholder="Buscar matéria" id="searchInput">
+            <img src="images/search.png" alt="" onclick="searchWord()">
+        </div>
+
+    </div>
+
+
+
+
+    <div class="main-container">
+        <div class="materias-drop-area">Solte aqui para voltar a matéria à lista</div>
+        <div class="materias-list">
+            <h2 class="materias-title">Matérias</h2>
+            <div class="loading materia-each-container ">...</div>
+
+        </div>
+
+        <div class="right-side">
+            <div class="turnos-checkbox-container">
+                <div id='alertaTurnos'>Escolha pelo menos um turno</div>
+                <h2 class="turnos-title">Turnos: </h2>
+                <label class="checkbox">
+                    <input type="checkbox" value='Manhã'>
+                    <span class="checkmark checked"></span>
+                    <span class="text-checkbox">Manhã</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value='Tarde'>
+                    <span class="checkmark checked"></span>
+                    <span class="text-checkbox">Tarde</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value='Noite'>
+                    <span class="checkmark"></span>
+                    <span class="text-checkbox">Noite</span>
+                </label>
+
+            </div>
+
+            <div class="tabela-horarios">
+
+            </div>
+            <div class="buttons-group">
+                <!-- <button id="salvar" class="btn btn-success" onclick="updateJson()">Salvar</button> -->
+                <button id="salvar" class="btn btn-primary" onclick="printPage()">Imprimir</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<script src="materias.js"></script>
+<script>
+    //Precisa ser a primeira a acontecer, só funcionou 100% desse jeito (colocando aqui primeiro)
+    $.ajaxSetup({
+        cache: false
+    })
+
+    var json
+    $.getJSON('../../dados.json', function (data) {
+        json = data
+        selectCursosTecnicos()
+
+    })
+</script>
+
+
+</html>

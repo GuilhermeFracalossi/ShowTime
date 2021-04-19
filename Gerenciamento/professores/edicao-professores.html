@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="edicao-professores.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap" rel="stylesheet">
+  <title>Gerenciamento - Professores</title>
+</head>
+
+<body>
+  <div class="header">
+    <a href="../../index.html">
+      <h4 class="logo">ShowTime <img src="images/logo.png" alt=""></h4>
+    </a>
+    <img onclick='showMenu()' src="images/menu.png" id="menu-button">
+    <div class="nav">
+      <div class="dropdown">
+        <h2>Horários <img class="arrow-down" src="images/arrow-down.png"></h2>
+        <ul>
+          <a href="../../Horarios/turmas/horariosTurmas.html">
+            <li>Por turmas</li>
+          </a>
+          <a href="../../Horarios/professores/horariosProfessor.html">
+            <li>Por professor</li>
+          </a>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <h2>Gerenciamento<img class="arrow-down" src="images/arrow-down.png"></h2>
+        <ul>
+          <a href="../../Gerenciamento/cursos/edicao-cursos.html">
+            <li>Cursos/Turmas</li>
+          </a>
+          <a href="../../Gerenciamento/materias/edicao-materias.html">
+            <li>Matérias</li>
+          </a>
+          <a href="../../Gerenciamento/Organiza_horarios/index.html">
+            <li>Períodos</li>
+          </a>
+          <a href="../../Gerenciamento/professores/edicao-professores.html">
+            <li>Professores</li>
+          </a>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <a href="../../Sobre/sobre.html">
+          <h2>Sobre</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="main-choice">
+    <!--BOTOES GRANDES-->
+    <button class="editarprofessor editar-professor-btn">Editar Nome/Bloqueios</button>
+    <button class="adicionarprofessor adicionar-professor-btn">Adicionar Professor</button>
+  </div>
+
+  <div class="tools-container">
+    <h1>Professores</h1>
+    <div class="buttons">
+      <div class="salvar" id="savenewteacher" onclick="saveBlocks()">
+        <img src="images/save.png" alt="">
+        <h2>Salvar</h2>
+      </div>
+
+      <!--BOTOES DA BARRA SUPERIOR-->
+
+      <button class="editarprofessor editar-professor-btn">Editar Nome/Bloqueios</button>
+      <button class="adicionarprofessor adicionar-professor-btn">Adicionar Professor</button>
+    </div>
+  </div>
+
+
+
+  <div id='edicao'>
+
+    <div class="datalist-container">
+      <h1>Professor: </h1>
+      <input type='text' id='professorescolhido' name='professorescolhido' list='listadeprofessores' />
+    </div>
+    <datalist id='listadeprofessores'>
+
+    </datalist>
+
+
+    <div class='info-container'>
+      <div>Nome: <div id='nome'></div><button class="btn btn-primary" id="editNome" onclick="editName()">Editar
+          nome</button></div>
+      <div>Código de Professor: <div id='código'></div>
+      </div>
+      <div>Bloqueios: <div id='bloqueios'></div>
+      </div>
+      <button class="btn btn-danger">Remover Professor</button>
+    </div>
+
+
+    <div class="subtitle">
+
+      <h2>Clique nos períodos para adicionar/remover o bloqueio</h2>
+      <div class="colors-subtitle">
+        Bloqueio pessoal<div class="color bloqueado"></div>
+        Bloqueio de aula<div class="color bloqueioDeAula"></div>
+      </div>
+    </div>
+    <div class="tabela-horarios"></div>
+
+  </div>
+
+  <div id='adicao'>
+
+
+    <div class="adicao-container">
+      <div id='manual'>
+        <h3>Manualmente</h3>
+        <div class="form-group">
+          <h4>Nome do professor </h4>
+          <input class='form-control' type='text' id='nomedoprofessor'>
+        </div>
+        <div class="form-group">
+          <h4>Código de professor (opcional)</h4>
+          <input class='form-control' type='number' id='codigodoprofessor'>
+        </div>
+        <h4>Cadastro de bloqueios pessoais - Clique para adicionar/remover</h4>
+        <div class="tabela-horarios2"></div>
+        <button class="btn btn-success" onclick="saveNewTeacherManually()">Salvar</button>
+
+      </div>
+      <div id='comcsv'>
+        <h3>Com arquivo .CSV</h3>
+        <div class="form-group">
+
+          <form id="form" method="post" enctype="multipart/form-data">
+            <h4>Insira abaixo o arquivo CSV, no formato <strong>Nome, Código, Bloqueios (Separados por '-'
+                )
+              </strong> Ex.: Jorge, 32, 1-2-3-48-49-50</h4>
+
+
+            <img src="images/arquivocsv.png" class="arquivo-csv">
+
+            <label for="csv"><img src="images/upload.png"><span>Escolher arquivo</span></label>
+            <input class='custom-input-file' type="file" id='csv' name='csv'>
+            <button class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="edicao-professores.js">
+  </script>
+</body>
+
+</html>

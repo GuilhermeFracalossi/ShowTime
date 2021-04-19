@@ -1,4 +1,4 @@
-#Show time
+# Show time
 **A complete class manager for educational institutions**
 
 <img src="Gerenciamento/cursos/images/curso-management-screenshot.png" width="45%"></img> 
@@ -6,7 +6,7 @@
 <img src="Gerenciamento/materias/images/materias-management-screenshot.png" width="45%"></img> 
 <img src="Gerenciamento/organiza_horarios/images/organiza-horarios-screenshot.png" width="45%"></img>
 
-##Features
+## Features
 * Manage class and teacher schedules
 * Add, change or remove **courses, classes, subjects and teachers**
 * Assign and manage subjects to school periods
